@@ -21,17 +21,17 @@ public class LoadDataBase {
                 profitService.addProfit(new ProfitEntity("Gifts", null, null, null, null, null, null, null, null, null, null, null, null, null));
                 profitService.addProfit(new ProfitEntity("Sell", null, null, null, null, null, null, null, null, null, null, null, null, null));
 
-                spendingService.addSpending(new SpendingEntity("Rental of property", null, null, null, null, null, null, null, null, null, null, null, null, null, null));
-                spendingService.addSpending(new SpendingEntity("Communal expenses", null, null, null, null, null, null, null, null, null, null, null, null, null, null));
-                spendingService.addSpending(new SpendingEntity("Products", null, null, null, null, null, null, null, null, null, null, null, null, null, null));
-                spendingService.addSpending(new SpendingEntity("Alcohol", null, null, null, null, null, null, null, null, null, null, null, null, null, null));
-                spendingService.addSpending(new SpendingEntity("Transport", null, null, null, null, null, null, null, null, null, null, null, null, null, null));
-                spendingService.addSpending(new SpendingEntity("Car", null, null, null, null, null, null, null, null, null, null, null, null, null, null));
-                spendingService.addSpending(new SpendingEntity("Gifts", null, null, null, null, null, null, null, null, null, null, null, null, null, null));
-                spendingService.addSpending(new SpendingEntity("Sport", null, null, null, null, null, null, null, null, null, null, null, null, null, null));
-                spendingService.addSpending(new SpendingEntity("Heals", null, null, null, null, null, null, null, null, null, null, null, null, null, null));
-                spendingService.addSpending(new SpendingEntity("Other", null, null, null, null, null, null, null, null, null, null, null, null, null, null));
-                spendingService.addSpending(new SpendingEntity("Credit", null, null, null, null, null, null, null, null, null, null, null, null, null, null));
+                spendingService.addSpending(new SpendingEntity("Rental of property", null, null, null, null, null, null, null, null, null, null, null, null, null));
+                spendingService.addSpending(new SpendingEntity("Communal expenses", null, null, null, null, null, null, null, null, null, null, null, null, null));
+                spendingService.addSpending(new SpendingEntity("Products", null, null, null, null, null, null, null, null, null, null, null, null, null));
+                spendingService.addSpending(new SpendingEntity("Alcohol", null, null, null, null, null, null, null, null, null, null, null, null, null));
+                spendingService.addSpending(new SpendingEntity("Transport", null, null, null, null, null, null, null, null, null, null, null, null, null));
+                spendingService.addSpending(new SpendingEntity("Car", null, null, null, null, null, null, null, null, null, null, null, null, null));
+                spendingService.addSpending(new SpendingEntity("Gifts", null, null, null, null, null, null, null, null, null, null, null, null, null));
+                spendingService.addSpending(new SpendingEntity("Sport", null, null, null, null, null, null, null, null, null, null, null, null, null));
+                spendingService.addSpending(new SpendingEntity("Heals", null, null, null, null, null, null, null, null, null, null, null, null, null));
+                spendingService.addSpending(new SpendingEntity("Other", null, null, null, null, null, null, null, null, null, null, null, null, null));
+                spendingService.addSpending(new SpendingEntity("Credit", null, null, null, null, null, null, null, null, null, null, null, null, null));
 
             }
         };

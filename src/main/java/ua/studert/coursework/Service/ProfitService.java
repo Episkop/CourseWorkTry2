@@ -7,9 +7,11 @@ import ua.studert.coursework.Entity.ProfitEntity;
 import ua.studert.coursework.Exception.AlreadyExistException;
 import ua.studert.coursework.Exception.DBIsEmptyException;
 import ua.studert.coursework.Exception.NotFoundException;
+import ua.studert.coursework.Model.ProfitModel;
 import ua.studert.coursework.Repository.ProfitRepository;
 import ua.studert.coursework.Service.ServiceInterface.ProfitServiceInterface;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -21,13 +23,23 @@ public class ProfitService implements ProfitServiceInterface {
         this.profitRepository = profitRepository;
     }
 
+//    @Transactional(readOnly = true)
+//    @Override
+//    public List<ProfitEntity> getAllProfit() throws DBIsEmptyException {
+//        List<ProfitEntity> list = profitRepository.findAll();
+//        if (list.isEmpty())
+//            throw new DBIsEmptyException("Data Base is empty!");
+//        return list;
+//    }
     @Transactional(readOnly = true)
     @Override
-    public List<ProfitEntity> getAllProfit() throws DBIsEmptyException {
+    public List<ProfitModel> getAllProfit() throws DBIsEmptyException {
+        List<ProfitModel> modelList = new ArrayList<>();
         List<ProfitEntity> list = profitRepository.findAll();
         if (list.isEmpty())
             throw new DBIsEmptyException("Data Base is empty!");
-        return list;
+        list.forEach(x -> modelList.add(x.toModel()));
+        return modelList;
     }
 
     @Transactional

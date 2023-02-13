@@ -1,13 +1,11 @@
 package ua.studert.coursework.Entity;
 
 import lombok.Getter;
-import lombok.Setter;
 import ua.studert.coursework.Model.ProfitModel;
 
 import javax.persistence.*;
 
 @Entity
-@Setter
 @Getter
 @Table(name = "profit")
 public class ProfitEntity {
@@ -76,4 +74,67 @@ public class ProfitEntity {
                 model.getNovember(), model.getDecember(), model.getSum());
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setArticle(String article) {
+        this.article = article;
+    }
+
+    public void setJanuary(Double january) {
+        this.january = january;
+    }
+
+    public void setFebruary(Double february) {
+        this.february = february;
+    }
+
+    public void setMarch(Double march) {
+        this.march = march;
+    }
+
+    public void setApril(Double april) {
+        this.april = april;
+    }
+
+    public void setMay(Double may) {
+        this.may = may;
+    }
+
+    public void setJune(Double june) {
+        this.june = june;
+    }
+
+    public void setJuly(Double july) {
+        this.july = july;
+    }
+
+    public void setAugust(Double august) {
+        this.august = august;
+    }
+
+    public void setSeptember(Double september) {
+        this.september = september;
+    }
+
+    public void setOctober(Double october) {
+        this.october = october;
+    }
+
+    public void setNovember(Double november) {
+        this.november = november;
+    }
+
+    public void setDecember(Double december) {
+        this.december = december;
+    }
+
+    public void setSum(Double sum) {
+        this.sum = sum;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
 }

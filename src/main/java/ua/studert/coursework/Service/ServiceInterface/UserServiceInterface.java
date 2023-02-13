@@ -1,17 +1,32 @@
 package ua.studert.coursework.Service.ServiceInterface;
 
+import org.springframework.transaction.annotation.Transactional;
 import ua.studert.coursework.Entity.UserEntity;
 import ua.studert.coursework.Enum.Role;
 import ua.studert.coursework.Exception.AlreadyExistException;
 import ua.studert.coursework.Exception.DBIsEmptyException;
 import ua.studert.coursework.Exception.NotFoundException;
+import ua.studert.coursework.Model.ProfitModel;
+import ua.studert.coursework.Model.SpendingModel;
+import ua.studert.coursework.Model.UserModel;
 
 import java.util.List;
 
 public interface UserServiceInterface {
-    public List<UserEntity> getAllUsers() throws DBIsEmptyException;
-    public UserEntity getUserByUsername(String Username) throws NotFoundException;
-    public boolean addUser(String username, String hashPass, Role role, String email) throws AlreadyExistException;
 
-  //  void deleteUsers(List<Long> ids);
+    void addUser(UserModel userModel, List<ProfitModel> profitModels, List<SpendingModel> spendingModels) throws AlreadyExistException;
+
+    public List<UserModel> getAllUsers() throws DBIsEmptyException;
+
+
+    UserModel getUserByEmail(String email) throws NotFoundException;
+
+
+    void delete(List<Long> idList);
+//    public UserEntity getUserByUsername(String Username) throws NotFoundException;
+
+//    @Transactional
+//    boolean addUser(String username, String email,) throws AlreadyExistException;
+
+
 }

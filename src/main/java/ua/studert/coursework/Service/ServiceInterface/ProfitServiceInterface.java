@@ -5,11 +5,12 @@ import ua.studert.coursework.Entity.ProfitEntity;
 import ua.studert.coursework.Exception.AlreadyExistException;
 import ua.studert.coursework.Exception.DBIsEmptyException;
 import ua.studert.coursework.Exception.NotFoundException;
+import ua.studert.coursework.Model.ProfitModel;
 
 import java.util.List;
 
 public interface ProfitServiceInterface {
-    List<ProfitEntity> getAllProfit () throws DBIsEmptyException;
+    List<ProfitModel> getAllProfit () throws DBIsEmptyException;
     boolean addProfit (ProfitEntity profit) throws AlreadyExistException;
 
     ProfitEntity findByArticle(String article) throws NotFoundException;
