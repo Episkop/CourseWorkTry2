@@ -40,17 +40,19 @@ public class SpendingModel {
     public SpendingModel() {
     }
 
-    public static ProfitModel of(String article, Double january, Double february, Double march, Double april, Double may,
-                                 Double june, Double july, Double august, Double september, Double october, Double november,
-                                 Double december, Double sum){
-        return new ProfitModel(null,article, january, february, march, april, may, june, july, august,
-                september, october, november, december,sum);
+    public static SpendingModel of(String article, Double january, Double february, Double march, Double april, Double may,
+                                   Double june, Double july, Double august, Double september, Double october, Double november,
+                                   Double december, Double sum) {
+        return new SpendingModel(null, article, january, february, march, april, may, june, july, august,
+                september, october, november, december, sum);
     }
+
     public static SpendingModel of(Long id, String article, Double january, Double february, Double march, Double april, Double may,
                                    Double june, Double july, Double august, Double september, Double october, Double november,
-                                   Double december, Double sum){
-        return new SpendingModel(id,article, january, february, march, april, may, june, july, august,
-                september, october, november, december,sum);
+                                   Double december, Double sum) {
+        return new SpendingModel(id, article, january, february, march, april, may, june, july, august,
+                september, october, november, december, sum);
+
     }
 
     public Long getId() {

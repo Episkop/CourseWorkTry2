@@ -11,7 +11,8 @@ import java.util.List;
 
 public interface ProfitServiceInterface {
     List<ProfitModel> getAllProfit () throws DBIsEmptyException;
-    boolean addProfit (ProfitEntity profit) throws AlreadyExistException;
+
+    boolean addProfit(ProfitModel profit, String email) throws AlreadyExistException;
 
     ProfitEntity findByArticle(String article) throws NotFoundException;
     boolean updateProfit(String article, Double january, Double february, Double march, Double april, Double may,

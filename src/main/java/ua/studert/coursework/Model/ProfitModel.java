@@ -1,7 +1,5 @@
 package ua.studert.coursework.Model;
 
-import javax.persistence.Column;
-
 public class ProfitModel {
     private Long id;
     private String article;

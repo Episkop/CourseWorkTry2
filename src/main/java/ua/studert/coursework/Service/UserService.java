@@ -36,10 +36,11 @@ public class UserService  implements UserServiceInterface {
     @Transactional
     @Override
     public void addUser(UserModel userModel, List<ProfitModel> profitModels, List<SpendingModel> spendingModels) throws AlreadyExistException {
-        if (userRepository.existsByEmail(userModel.getEmail()))
-            throw new AlreadyExistException("Such User " + userModel.getUsername() + " exist");
-           // return; // do nothing
+        String userEmail = userModel.getEmail();
+        if (userRepository.existsByEmail(userEmail)) {
 
+            return; // do nothing
+        }
         UserEntity user = UserEntity.fromModel(userModel);
 
         profitModels.forEach((x) -> {
@@ -58,7 +59,7 @@ public class UserService  implements UserServiceInterface {
     @Override
     public List<UserModel> getAllUsers() throws DBIsEmptyException {
         List<UserModel> modelList = new ArrayList<>();
-        List<UserEntity> list = userRepository.findAll();
+        List<UserEntity> list = (List<UserEntity>) userRepository.findAll();
         if(list.isEmpty()){
             throw new DBIsEmptyException("Data Base is empty");
         }

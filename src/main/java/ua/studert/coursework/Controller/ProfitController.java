@@ -2,10 +2,10 @@ package ua.studert.coursework.Controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ua.studert.coursework.Entity.ProfitEntity;
 import ua.studert.coursework.Exception.AlreadyExistException;
 import ua.studert.coursework.Exception.DBIsEmptyException;
 import ua.studert.coursework.Exception.NotFoundException;
+import ua.studert.coursework.Model.ProfitModel;
 import ua.studert.coursework.Service.ProfitService;
 
 @RestController
@@ -40,16 +40,12 @@ public class ProfitController {
         }
     }
 
-//    @PostMapping("/sum")
-//    public ResponseEntity getSum (@RequestParam String article){
-//
-//        return profitService.countLine(article);
-//    }
+
 
     @PostMapping("/save")
-    public ResponseEntity saveProfit(@RequestBody ProfitEntity profit) {
+    public ResponseEntity saveProfit(@RequestBody ProfitModel profit,String email) {
         try {
-            return ResponseEntity.ok(profitService.addProfit(profit));
+            return ResponseEntity.ok(profitService.addProfit(profit,email));
         } catch (AlreadyExistException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch (Exception e) {

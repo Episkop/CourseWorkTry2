@@ -1,7 +1,5 @@
 package ua.studert.coursework.Entity;
 
-import lombok.Getter;
-import lombok.Setter;
 import ua.studert.coursework.Model.UserModel;
 
 import javax.persistence.*;
@@ -20,6 +18,7 @@ public class UserEntity {
 //    private String password;
 //    @Enumerated(value = EnumType.STRING)
 //    private Role role;
+//    @Column(unique = true)
     private String email;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)

@@ -1,14 +1,15 @@
 package ua.studert.coursework.Service;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.studert.coursework.Entity.ProfitEntity;
+import ua.studert.coursework.Entity.UserEntity;
 import ua.studert.coursework.Exception.AlreadyExistException;
 import ua.studert.coursework.Exception.DBIsEmptyException;
 import ua.studert.coursework.Exception.NotFoundException;
 import ua.studert.coursework.Model.ProfitModel;
 import ua.studert.coursework.Repository.ProfitRepository;
+import ua.studert.coursework.Repository.UserRepository;
 import ua.studert.coursework.Service.ServiceInterface.ProfitServiceInterface;
 
 import java.util.ArrayList;
@@ -18,9 +19,12 @@ import java.util.List;
 public class ProfitService implements ProfitServiceInterface {
 
     private final ProfitRepository profitRepository;
+    private final UserRepository userRepository;
 
-    public ProfitService(ProfitRepository profitRepository) {
+    public ProfitService(ProfitRepository profitRepository,
+                         UserRepository userRepository) {
         this.profitRepository = profitRepository;
+        this.userRepository = userRepository;
     }
 
 //    @Transactional(readOnly = true)
@@ -44,11 +48,14 @@ public class ProfitService implements ProfitServiceInterface {
 
     @Transactional
     @Override
-    public boolean addProfit(ProfitEntity profit) throws AlreadyExistException {
-        if (profitRepository.existsByArticle(profit.getArticle()))
+    public boolean addProfit(ProfitModel profit, String email) throws AlreadyExistException {
+        UserEntity user = userRepository.findByEmail(email);
+        ProfitEntity profitEntity = ProfitEntity.fromModel(profit);
+        if (profitRepository.existsByArticle(profitEntity.getArticle()))
            return  false;
+        user.addProfitEntity(profitEntity);
             //throw new AlreadyExistException("Such" + profit.getArticle() + "already exist");
-        profitRepository.save(profit);
+        userRepository.save(user);
         return true;
     }
 
@@ -118,9 +125,7 @@ public class ProfitService implements ProfitServiceInterface {
         if (sum != null)
             profit.setSum(sum);
         //TODO
-//        Double count = profitRepository.getSumFromMouns(profit.getArticle());
-//        profit.setSum(count);
-       // profit.setSum(profitRepository.getSumFromMouns(profit.getArticle()));
+        profitRepository.sumOfMonth(sum,march,april,article);
         profitRepository.save(profit);
         return true;
     }
@@ -130,4 +135,6 @@ public class ProfitService implements ProfitServiceInterface {
     public void deleteProfit(Long id) throws NotFoundException{
         profitRepository.deleteById(id);
     }
+
+
 }
